@@ -26,6 +26,9 @@ field2.startListen();
 field3.startListen();
 field4.startListen();
 
+// creditcard listener
+paymentOpt.other.startListen()
+
 // group all form fields
 const setForm = [field1, field2, field3, field4];
 
@@ -38,12 +41,17 @@ const form = document.querySelector('form');
 // focus name field automatically on load
 $('#name').focus();
 
+$('#payment option').eq(1).attr('selected','true')
+
 // hide job field
 $other.hide();
 
-// hide payment field and credit card
-$opt.parent().parent().hide();
-$('fieldset:eq(3) > div').hide();
+// hide payment divs
+	$opt.parent().parent().hide();
+	$('fieldset:eq(3) > div').each((index, value) => {
+		const self = $(value)
+		self.attr('id') == 'credit-card' ? self.show() : self.hide()
+	});
 
 // append label node to store total
 $('.activities').append(`<label id="total"></tabel>`);
