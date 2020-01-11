@@ -128,6 +128,7 @@ form.addEventListener('submit', function(e) {
 	if(setForm.some(group => !group.checkValue())) {
 		e.preventDefault()
 		li2.textContent = 'One or more field(s) has an invalid value, please check up all the information passed in';
+		li2.style.display = 'block';
 	} else {
 		li2.textContent = '';
 		li2.style.display = 'none';	
